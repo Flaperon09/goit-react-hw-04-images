@@ -31,6 +31,7 @@ export default function App() {
         setTotalImages(response.data.total) // Установка количества найденных изображений
         setStatus('idle') // Выключение статуса ожидания ответа сервера (выкл спиннер)
       });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputSearch, page]);
 
   // === Функция получения нового запроса
