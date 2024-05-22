@@ -8,19 +8,21 @@ export default function Modal({onClose, largeImage}) {
 
     // === ХУК подключения и удаления слушателя событий
     useEffect(() => {
-        // const handleKeyDown = e => console.log();
+
+        // === Функция закрытия модального окна по Esc
+        const handleKeyDown = event => {
+            if (event.code === 'Escape') {
+                onClose();
+            };
+        };
+
+        // Добавление слушателя клика
         window.addEventListener('keydown', handleKeyDown);
+        // Удаление слушателя клика
         return () => {
             window.removeEventListener('keydown', handleKeyDown);
         };
-    }, []);
-
-    // === Функция закрытия модального окна по Esc
-    const handleKeyDown = event => {
-        if (event.code === 'Escape') {
-            onClose();
-        };
-    };
+    }, [onClose]);
 
     // === Функция закрытия модального окна по клику в бекдроп
     const handleBackdropClick = event => {
