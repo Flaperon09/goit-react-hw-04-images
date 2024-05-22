@@ -8,11 +8,12 @@ export default function Modal({onClose, largeImage}) {
 
     // === ХУК подключения и удаления слушателя событий
     useEffect(() => {
+        // const handleKeyDown = e => console.log();
         window.addEventListener('keydown', handleKeyDown);
         return () => {
             window.removeEventListener('keydown', handleKeyDown);
         };
-    });
+    }, []);
 
     // === Функция закрытия модального окна по Esc
     const handleKeyDown = event => {
